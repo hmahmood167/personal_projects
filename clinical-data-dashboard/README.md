@@ -1,13 +1,15 @@
 # Clinical Data Validation Dashboard
 
 An RShiny-based dashboard that automates structured dataset validation workflows.
+## 🚀 Live Demo
 
-## Features
-- Missing data detection with configurable threshold flagging
+🔗 https://hmahmood.shinyapps.io/clinical-data-dashboard/
+
+This interactive RShiny dashboard demonstrates automated clinical data validation including:
+- Missing data detection with threshold flagging
 - IQR-based outlier detection
 - Dataset comparison
-- Interactive ggplot2 visualizations
-- Downloadable validation report
+- Treatment-group visualization of clinical metrics
 
 ## Tech Stack
 - R
