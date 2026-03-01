@@ -1,6 +1,7 @@
 library(shiny)
 library(tidyverse)
 library(DT)
+library(scales)
 
 # -------------------------
 # VALIDATION FUNCTIONS
@@ -44,24 +45,30 @@ compare_datasets <- function(df1, df2) {
 
 ui <- fluidPage(
   
-  titlePanel("Clinical Data Validation Dashboard"),
+  fluidRow(
+    column(12,
+      h2("Clinical Data Validation Dashboard", align = "center"),
+      hr()
+    )
+  ),
   
   sidebarLayout(
     sidebarPanel(
       fileInput("file1", "Upload Primary Dataset (.csv)"),
       fileInput("file2", "Upload Comparison Dataset (optional)"),
-      numericInput("threshold", "Missing % Threshold:", 5),
+      numericInput("threshold", "Missing % Threshold:", 5, min = 0, max = 100),
       selectInput("numeric_var", "Select Numeric Variable", choices = NULL),
+      br(),
       downloadButton("download_report", "Download Missing Data Report")
     ),
     
     mainPanel(
       tabsetPanel(
-        tabPanel("Preview", DTOutput("preview")),
-        tabPanel("Missing Data", DTOutput("missing_table")),
-        tabPanel("Outliers", DTOutput("outlier_table")),
-        tabPanel("Comparison", DTOutput("comparison_table")),
-        tabPanel("Visualization", plotOutput("plot"))
+        tabPanel("Preview", br(), DTOutput("preview")),
+        tabPanel("Missing Data", br(), DTOutput("missing_table")),
+        tabPanel("Outliers", br(), DTOutput("outlier_table")),
+        tabPanel("Comparison", br(), DTOutput("comparison_table")),
+        tabPanel("Visualization", br(), plotOutput("plot", height = "500px"))
       )
     )
   )
@@ -89,37 +96,98 @@ server <- function(input, output, session) {
     updateSelectInput(session, "numeric_var", choices = numeric_cols)
   })
   
+  # -------------------------
+  # PREVIEW TABLE
+  # -------------------------
+  
   output$preview <- renderDT({
     req(dataset1())
-    datatable(dataset1(), options = list(scrollX = TRUE))
+    datatable(
+      dataset1(),
+      options = list(scrollX = TRUE, pageLength = 10),
+      class = "stripe hover compact"
+    )
   })
+  
+  # -------------------------
+  # MISSING DATA TABLE
+  # -------------------------
   
   output$missing_table <- renderDT({
     req(dataset1())
-    missing_df <- calculate_missing(dataset1())
+    missing_df <- calculate_missing(dataset1()) %>%
+      mutate(
+        Flag = ifelse(Missing_Percent > input$threshold, "⚠ Flagged", "OK")
+      )
     
-    missing_df %>%
-      mutate(Flag = ifelse(Missing_Percent > input$threshold, "⚠ Flagged", "OK"))
+    datatable(
+      missing_df,
+      options = list(pageLength = 10),
+      class = "stripe hover"
+    )
   })
+  
+  # -------------------------
+  # OUTLIER TABLE
+  # -------------------------
   
   output$outlier_table <- renderDT({
     req(dataset1())
-    detect_outliers(dataset1())
+    
+    datatable(
+      detect_outliers(dataset1()),
+      options = list(pageLength = 10),
+      class = "stripe hover"
+    )
   })
+  
+  # -------------------------
+  # COMPARISON TABLE
+  # -------------------------
   
   output$comparison_table <- renderDT({
     req(input$file2)
-    compare_datasets(dataset1(), dataset2())
+    
+    datatable(
+      compare_datasets(dataset1(), dataset2()),
+      options = list(dom = 't'),
+      class = "stripe"
+    )
   })
+  
+  # -------------------------
+  # VISUALIZATION
+  # -------------------------
   
   output$plot <- renderPlot({
     req(dataset1(), input$numeric_var)
     
-    ggplot(dataset1(), aes_string(x = input$numeric_var)) +
-      geom_histogram(bins = 30, fill = "steelblue", color = "white") +
-      theme_minimal() +
-      labs(title = paste("Distribution of", input$numeric_var))
+    data_clean <- dataset1() %>%
+      filter(!is.na(.data[[input$numeric_var]]))
+    
+    ggplot(data_clean, aes(x = .data[[input$numeric_var]])) +
+      geom_histogram(
+        bins = 30,
+        fill = "#2C7FB8",
+        color = "white",
+        alpha = 0.85
+      ) +
+      scale_x_continuous(labels = comma) +
+      labs(
+        title = paste("Distribution of", input$numeric_var),
+        x = input$numeric_var,
+        y = "Count"
+      ) +
+      theme_minimal(base_size = 15) +
+      theme(
+        plot.title = element_text(face = "bold", hjust = 0.5),
+        panel.grid.minor = element_blank()
+      )
   })
+  
+  # -------------------------
+  # DOWNLOAD REPORT
+  # -------------------------
   
   output$download_report <- downloadHandler(
     filename = function() {

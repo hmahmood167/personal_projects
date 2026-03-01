@@ -1,0 +1,10 @@
+name: clinical-data-dashboard
+title:
+username: hmahmood
+account: hmahmood
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 16787547
+bundleId: 11644782
+url: https://hmahmood.shinyapps.io/clinical-data-dashboard/
+version: 1
