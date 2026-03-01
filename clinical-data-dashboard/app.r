@@ -47,8 +47,8 @@ ui <- fluidPage(
   
   fluidRow(
     column(12,
-      h2("Clinical Data Validation Dashboard", align = "center"),
-      hr()
+           h2("Clinical Data Validation Dashboard", align = "center"),
+           hr()
     )
   ),
   
@@ -57,7 +57,7 @@ ui <- fluidPage(
       fileInput("file1", "Upload Primary Dataset (.csv)"),
       fileInput("file2", "Upload Comparison Dataset (optional)"),
       numericInput("threshold", "Missing % Threshold:", 5, min = 0, max = 100),
-      selectInput("numeric_var", "Select Numeric Variable", choices = NULL),
+      selectInput("numeric_var", "Select Clinical Metric", choices = NULL),
       br(),
       downloadButton("download_report", "Download Missing Data Report")
     ),
@@ -90,9 +90,13 @@ server <- function(input, output, session) {
     read_csv(input$file2$datapath, show_col_types = FALSE)
   })
   
+  # Update dropdown — exclude ID-like columns
   observe({
     req(dataset1())
+    
     numeric_cols <- names(dataset1())[sapply(dataset1(), is.numeric)]
+    numeric_cols <- numeric_cols[!grepl("id", numeric_cols, ignore.case = TRUE)]
+    
     updateSelectInput(session, "numeric_var", choices = numeric_cols)
   })
   
@@ -115,6 +119,7 @@ server <- function(input, output, session) {
   
   output$missing_table <- renderDT({
     req(dataset1())
+    
     missing_df <- calculate_missing(dataset1()) %>%
       mutate(
         Flag = ifelse(Missing_Percent > input$threshold, "⚠ Flagged", "OK")
@@ -156,7 +161,7 @@ server <- function(input, output, session) {
   })
   
   # -------------------------
-  # VISUALIZATION
+  # VISUALIZATION (Polished)
   # -------------------------
   
   output$plot <- renderPlot({
@@ -165,24 +170,50 @@ server <- function(input, output, session) {
     data_clean <- dataset1() %>%
       filter(!is.na(.data[[input$numeric_var]]))
     
-    ggplot(data_clean, aes(x = .data[[input$numeric_var]])) +
-      geom_histogram(
-        bins = 30,
-        fill = "#2C7FB8",
-        color = "white",
-        alpha = 0.85
-      ) +
-      scale_x_continuous(labels = comma) +
-      labs(
-        title = paste("Distribution of", input$numeric_var),
-        x = input$numeric_var,
-        y = "Count"
-      ) +
-      theme_minimal(base_size = 15) +
-      theme(
-        plot.title = element_text(face = "bold", hjust = 0.5),
-        panel.grid.minor = element_blank()
-      )
+    # If Treatment_Group exists, show clinical-style boxplot
+    if ("Treatment_Group" %in% names(data_clean)) {
+      
+      ggplot(data_clean, 
+             aes(x = Treatment_Group, 
+                 y = .data[[input$numeric_var]], 
+                 fill = Treatment_Group)) +
+        geom_boxplot(alpha = 0.75, outlier.color = "red") +
+        scale_fill_brewer(palette = "Set2") +
+        scale_y_continuous(labels = comma) +
+        labs(
+          title = paste("Distribution of", input$numeric_var, "by Treatment Group"),
+          x = "",
+          y = input$numeric_var
+        ) +
+        theme_minimal(base_size = 15) +
+        theme(
+          plot.title = element_text(face = "bold", hjust = 0.5),
+          legend.position = "none",
+          panel.grid.minor = element_blank()
+        )
+      
+    } else {
+      
+      # Fallback to histogram
+      ggplot(data_clean, aes(x = .data[[input$numeric_var]])) +
+        geom_histogram(
+          bins = 30,
+          fill = "#2C7FB8",
+          color = "white",
+          alpha = 0.85
+        ) +
+        scale_x_continuous(labels = comma) +
+        labs(
+          title = paste("Distribution of", input$numeric_var),
+          x = input$numeric_var,
+          y = "Count"
+        ) +
+        theme_minimal(base_size = 15) +
+        theme(
+          plot.title = element_text(face = "bold", hjust = 0.5),
+          panel.grid.minor = element_blank()
+        )
+    }
   })
   
   # -------------------------
