@@ -1,0 +1,301 @@
+Patient_ID,Age,Blood_Pressure,Heart_Rate,Lab_Value,Treatment_Group
+1,48,109,86,2.89,Treatment A
+2,52,109,75,3.03,Treatment B
+3,74,106,75,3.68,Control
+4,56,104,60,4.48,Treatment B
+5,57,113,83,4.15,Treatment A
+6,76,125,73,3.13,Treatment B
+7,61,90,68,4,Treatment A
+8,40,NA,61,3.47,Control
+9,47,139,72,3.68,Control
+10,50,151,67,3.66,Control
+11,70,140,71,5.05,Treatment A
+12,59,131,63,2.79,Control
+13,60,94,92,3.56,Treatment A
+14,56,111,75,2.43,Control
+15,48,115,86,3.85,Treatment B
+16,76,131,49,4.16,Control
+17,61,118,70,4.37,Treatment B
+18,31,101,68,2.34,Treatment B
+19,63,145,63,3.75,Treatment A
+20,49,134,90,4.46,Treatment A
+21,42,124,61,3.25,Treatment A
+22,52,138,78,3.37,Treatment B
+23,43,100,83,3.48,Control
+24,46,130,77,3.72,Control
+25,47,112,66,3.9,Treatment B
+26,35,130,84,4.29,Control
+27,65,119,77,3.44,Control
+28,57,129,64,3.62,Control
+29,41,140,61,4.99,Treatment A
+30,70,120,96,3.76,Control
+31,60,135,68,NA,Treatment A
+32,51,102,56,2.69,Treatment B
+33,66,109,80,3.5,Control
+34,66,143,78,3.37,Treatment B
+35,65,126,61,3.49,Control
+36,63,89,56,3.15,Treatment B
+37,62,100,74,NA,Treatment B
+38,54,117,86,3.07,Treatment A
+39,51,133,81,3.37,Control
+40,50,118,70,4.32,Treatment B
+41,47,129,67,4.13,Treatment B
+42,53,134,78,3.28,Control
+43,40,145,77,2.49,Treatment A
+44,81,121,81,2.99,Treatment A
+45,69,119,71,3.23,Treatment A
+46,42,94,84,3.56,Treatment B
+47,50,121,67,3.1,Treatment B
+48,49,111,72,4.7,Treatment B
+49,64,105,82,3.34,Control
+50,54,117,85,2.77,Treatment A
+51,58,135,56,3.42,Treatment A
+52,55,90,76,2.9,Control
+53,54,114,81,3.59,Control
+54,71,122,60,3.64,Control
+55,52,107,80,3.71,Treatment A
+56,73,125,67,2.53,Treatment B
+57,36,NA,85,3.63,Treatment B
+58,62,120,80,3.69,Treatment B
+59,56,83,83,2.65,Treatment B
+60,58,159,76,4.07,Control
+61,60,117,84,3.97,Control
+62,49,130,89,4.88,Treatment B
+63,51,124,95,3.59,Control
+64,43,135,75,3.53,Control
+65,42,132,53,3.56,Control
+66,59,117,75,3.54,Treatment B
+67,60,126,77,2.39,Treatment B
+68,56,106,73,2.5,Treatment A
+69,66,133,81,3.45,Treatment B
+70,80,113,85,3.15,Treatment A
+71,49,156,70,3.53,Treatment A
+72,27,95,72,2.23,Treatment A
+73,67,NA,79,2.6,Treatment A
+74,46,132,69,2.84,Treatment B
+75,47,128,76,4.09,Treatment A
+76,67,111,55,2.84,Treatment B
+77,52,105,64,3.02,Treatment A
+78,40,122,62,3.55,Control
+79,57,120,66,3.31,Control
+80,53,93,68,3.59,Treatment B
+81,55,121,79,4.88,Control
+82,60,123,85,2.83,Treatment A
+83,51,123,68,3.32,Treatment A
+84,63,104,65,3.19,Treatment A
+85,52,127,65,4.41,Control
+86,59,141,71,3.04,Treatment B
+87,68,NA,73,3.45,Treatment B
+88,60,103,80,3.97,Treatment A
+89,51,113,72,2.86,Treatment A
+90,69,125,54,4.49,Treatment A
+91,67,110,74,3.91,Treatment B
+92,62,88,87,2.86,Control
+93,58,133,87,3.77,Treatment A
+94,47,108,67,3.37,Treatment B
+95,71,111,60,3.69,Control
+96,48,143,100,NA,Treatment B
+97,81,108,73,4.14,Treatment B
+98,73,133,74,2.69,Treatment A
+99,52,101,79,3.19,Treatment B
+100,43,115,59,3.35,Treatment B
+101,46,119,68,2.9,Treatment A
+102,58,102,60,2.88,Control
+103,52,110,68,3.49,Control
+104,51,120,76,3.42,Treatment B
+105,44,130,61,1.97,Control
+106,54,95,81,4.12,Treatment B
+107,46,115,78,3.65,Treatment B
+108,35,131,66,NA,Treatment A
+109,50,112,77,3.91,Treatment B
+110,66,123,82,3.23,Control
+111,48,127,86,5.18,Control
+112,62,124,73,5.2,Control
+113,36,130,74,2.77,Treatment B
+114,54,118,74,3.78,Control
+115,61,114,89,3.37,Treatment A
+116,59,80,86,3.61,Control
+117,56,119,83,3.64,Treatment A
+118,47,126,72,2.74,Control
+119,45,128,79,3.67,Treatment A
+120,43,112,79,4.55,Treatment A
+121,56,147,65,NA,Treatment A
+122,44,124,58,3.4,Treatment B
+123,49,122,81,4.34,Treatment B
+124,52,139,60,4.04,Treatment A
+125,77,109,75,2.51,Treatment A
+126,47,113,78,3.64,Treatment A
+127,58,156,81,4.49,Treatment B
+128,56,120,77,4.35,Control
+129,43,145,68,3.75,Treatment B
+130,54,98,85,3.93,Control
+131,72,117,92,2.78,Treatment A
+132,60,126,84,3.68,Treatment B
+133,55,125,56,NA,Treatment A
+134,50,105,89,3.23,Treatment A
+135,30,120,74,4.06,Control
+136,69,104,80,2.82,Treatment A
+137,37,131,81,3.66,Treatment B
+138,64,136,74,3.76,Treatment A
+139,78,87,74,3.53,Treatment B
+140,38,139,85,4.59,Treatment B
+141,63,101,82,2.89,Treatment A
+142,52,127,85,3.86,Control
+143,36,130,99,3.45,Control
+144,37,117,82,3.34,Treatment A
+145,36,110,77,3.78,Treatment B
+146,49,122,53,2.89,Treatment A
+147,37,127,102,2.71,Control
+148,63,133,70,3.2,Treatment B
+149,80,89,99,4.55,Control
+150,40,95,79,3.53,Control
+151,64,141,90,3.7,Treatment B
+152,64,136,74,3.39,Control
+153,59,127,80,3.78,Treatment A
+154,43,131,77,NA,Treatment B
+155,54,134,73,NA,Treatment B
+156,52,80,74,3.85,Treatment B
+157,62,137,85,3.02,Treatment B
+158,51,113,73,3.53,Treatment B
+159,67,123,55,3.93,Treatment A
+160,51,116,73,3.83,Control
+161,68,133,80,4.39,Treatment B
+162,42,115,81,3.13,Treatment A
+163,40,NA,81,4.17,Control
+164,94,114,58,4.12,Control
+165,50,NA,79,3.4,Treatment B
+166,59,138,85,2.91,Treatment A
+167,63,131,88,2.85,Treatment A
+168,49,146,73,3.77,Treatment A
+169,61,121,72,3.46,Treatment A
+170,59,137,90,4.57,Treatment A
+171,52,150,58,3.82,Control
+172,56,116,71,3.28,Treatment B
+173,55,100,80,2.88,Treatment B
+174,81,116,59,3.15,Treatment B
+175,46,117,78,3.71,Treatment A
+176,42,122,94,3.23,Treatment B
+177,55,146,75,3.81,Treatment A
+178,59,115,72,3.3,Control
+179,60,NA,80,3.44,Control
+180,49,117,72,3.06,Treatment B
+181,42,120,83,NA,Treatment B
+182,70,125,84,3.7,Treatment B
+183,51,140,75,NA,Treatment A
+184,45,122,63,NA,Control
+185,52,131,62,3.9,Control
+186,53,132,69,2.89,Control
+187,68,134,83,2.97,Control
+188,56,111,55,4.05,Control
+189,64,144,56,3.23,Treatment A
+190,49,114,68,2.45,Control
+191,58,118,79,4.56,Treatment A
+192,51,NA,66,2.07,Treatment A
+193,56,139,84,3.84,Treatment B
+194,44,104,78,4.11,Control
+195,39,107,73,3.12,Treatment B
+196,79,100,83,3.77,Treatment B
+197,62,123,79,3.76,Control
+198,40,122,71,4.12,Treatment A
+199,48,125,77,3.79,Treatment B
+200,41,128,81,3.35,Treatment A
+201,81,111,79,4.05,Control
+202,71,105,68,3.98,Treatment B
+203,52,135,84,2.94,Treatment A
+204,62,131,87,2.66,Control
+205,50,97,78,3.6,Treatment B
+206,49,119,76,3.34,Control
+207,46,107,74,2.91,Treatment A
+208,48,89,97,3.55,Treatment A
+209,75,122,78,2.71,Control
+210,54,119,73,3.6,Treatment B
+211,56,119,50,3.13,Control
+212,58,123,59,4.07,Treatment B
+213,70,133,74,4.95,Treatment A
+214,49,123,77,2.95,Treatment B
+215,43,111,78,4.13,Treatment B
+216,75,NA,83,4,Treatment B
+217,50,118,73,3.46,Control
+218,46,125,87,3.23,Control
+219,40,104,66,4.45,Control
+220,40,117,63,2.3,Control
+221,48,135,63,3.11,Treatment A
+222,62,118,82,2.64,Treatment A
+223,68,110,74,4.34,Control
+224,63,NA,83,3.39,Control
+225,51,137,72,3.19,Treatment A
+226,56,128,69,5.41,Control
+227,47,139,71,3.47,Treatment B
+228,46,122,56,3.23,Treatment A
+229,66,126,63,3.68,Control
+230,43,112,61,2.56,Control
+231,78,129,86,3.79,Treatment A
+232,54,NA,69,3.44,Control
+233,58,99,83,3.78,Treatment B
+234,46,122,90,2.91,Treatment B
+235,48,149,73,2.89,Control
+236,39,132,78,3.08,Treatment B
+237,53,137,57,3.04,Control
+238,60,125,67,NA,Treatment B
+239,59,111,76,4.45,Treatment B
+240,46,117,78,3.41,Treatment A
+241,46,116,67,3.28,Treatment A
+242,49,113,102,3.3,Treatment A
+243,73,131,70,3.54,Treatment B
+244,41,102,76,3.56,Treatment B
+245,53,133,81,3.67,Treatment B
+246,78,133,75,3.05,Control
+247,54,102,69,2.99,Treatment B
+248,39,130,85,4.22,Treatment A
+249,47,156,91,3.17,Control
+250,61,112,75,3.68,Treatment B
+251,50,133,81,3.47,Control
+252,48,108,74,2.93,Treatment B
+253,51,NA,85,3.85,Treatment B
+254,56,124,63,3.6,Control
+255,74,145,98,4.34,Control
+256,54,NA,69,3.57,Control
+257,68,119,60,3.3,Control
+258,63,112,71,3.67,Treatment B
+259,54,117,76,2.79,Treatment A
+260,37,111,91,3,Control
+261,49,NA,84,3.81,Treatment A
+262,49,129,76,3.3,Control
+263,56,104,61,3.46,Treatment B
+264,71,142,66,3.43,Control
+265,83,102,73,NA,Control
+266,74,122,101,2.29,Treatment A
+267,53,128,56,3.71,Treatment A
+268,34,NA,86,3.96,Control
+269,50,NA,70,2.73,Treatment B
+270,56,121,92,4.39,Treatment B
+271,65,134,64,3.73,Treatment B
+272,67,98,76,4.3,Control
+273,63,NA,64,NA,Treatment B
+274,38,125,84,3.6,Control
+275,65,NA,90,3.44,Treatment A
+276,50,141,95,3.96,Control
+277,57,130,83,3.15,Treatment A
+278,56,121,93,3.49,Control
+279,60,97,87,2.43,Treatment B
+280,55,120,74,3.03,Treatment A
+281,35,115,80,3.58,Treatment A
+282,64,118,65,3.08,Treatment A
+283,60,102,73,3.47,Treatment B
+284,52,127,87,NA,Treatment B
+285,56,104,80,3.86,Treatment A
+286,57,117,80,4.2,Treatment B
+287,58,126,65,3.01,Treatment A
+288,75,108,69,3.32,Treatment B
+289,52,NA,67,4.36,Control
+290,57,100,79,2.18,Treatment B
+291,69,78,65,3.31,Control
+292,68,127,81,4.74,Control
+293,69,133,64,4.82,Treatment A
+294,48,116,93,3.59,Control
+295,79,128,80,2.98,Control
+296,56,103,68,3.6,Treatment A
+297,77,NA,77,3.11,Control
+298,39,91,71,4.37,Treatment B
+299,55,138,79,3.02,Treatment A
+300,70,148,77,3.72,Treatment A
